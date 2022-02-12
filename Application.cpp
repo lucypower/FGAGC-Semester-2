@@ -1,5 +1,9 @@
 #include "Application.h"
 
+#define NUMBEROFCUBES 1
+#define NUMBEROFCUBES 1
+
+
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	PAINTSTRUCT ps;
@@ -163,7 +167,7 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 
 	_gameObjects.push_back(gameObject);
 
-	for (auto i = 0; i < 5; i++)
+	for (auto i = 0; i < NUMBEROFCUBES; i++)
 	{
 		gameObject = new GameObject("Cube " + i, cubeGeometry, shinyMaterial);
 		gameObject->SetScale(0.5f, 0.5f, 0.5f);
