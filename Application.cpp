@@ -1,7 +1,6 @@
 #include "Application.h"
 
 #define NUMBEROFCUBES 1
-#define NUMBEROFCUBES 1
 
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
@@ -685,7 +684,7 @@ void Application::moveBackward(int objectNumber)
 void Application::Update()
 {
     // Update our time
-    static float timeSinceStart = 0.0f;
+    static float deltaTime = 0.0f;
     static DWORD dwTimeStart = 0;
 
     DWORD dwTimeCur = GetTickCount64();
@@ -693,7 +692,12 @@ void Application::Update()
     if (dwTimeStart == 0)
         dwTimeStart = dwTimeCur;
 
-	timeSinceStart = (dwTimeCur - dwTimeStart) / 1000.0f;
+	deltaTime = (dwTimeCur - dwTimeStart) / 1000.0f;
+
+	if (deltaTime < (-1.0f / 60.0f))
+	{
+		return;
+	}
 
 	// Move gameobject
 	if (GetAsyncKeyState('1'))
@@ -729,8 +733,11 @@ void Application::Update()
 	// Update objects
 	for (auto gameObject : _gameObjects)
 	{
-		gameObject->Update(timeSinceStart);
+		gameObject->Update(deltaTime);
 	}
+
+	dwTimeStart = dwTimeCur;
+	deltaTime = deltaTime - (1.0f / 60.0f);
 }
 
 void Application::Draw()

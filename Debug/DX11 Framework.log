@@ -1,3 +1,4 @@
-﻿  Application.cpp
-C:\Users\lcypw\OneDrive\Documents\University\Year 2\Further Games and Graphic Concepts\Physics Framework\Application.cpp(689,21): warning C4244: 'initializing': conversion from 'ULONGLONG' to 'DWORD', possible loss of data
+﻿  GameObject.cpp
+C:\Users\lcypw\OneDrive\Documents\University\Year 2\Further Games and Graphic Concepts\Physics Framework\GameObject.cpp(19,17): warning C4474: 'printf' : too many arguments passed for format string
+C:\Users\lcypw\OneDrive\Documents\University\Year 2\Further Games and Graphic Concepts\Physics Framework\GameObject.cpp(19,17): message : placeholders and their parameters expect 0 variadic arguments, but 1 were provided
   DX11 Framework.vcxproj -> C:\Users\lcypw\OneDrive\Documents\University\Year 2\Further Games and Graphic Concepts\Physics Framework\Debug\DX11 Framework.exe
