@@ -28,7 +28,6 @@ public:
 
 	XMFLOAT3 GetRotation() const { return _rotation; }
 
-private:
 
 	XMFLOAT3 _position;
 	XMFLOAT3 _rotation;

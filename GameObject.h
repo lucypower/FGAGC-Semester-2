@@ -29,7 +29,7 @@ struct Material
 class GameObject
 {
 public:
-	GameObject(string type, Geometry geometry, Material material);
+	GameObject(string type, Geometry geometry, Transform* transform, Material material);
 	~GameObject();
 
 	string GetType() const { return _type; }
