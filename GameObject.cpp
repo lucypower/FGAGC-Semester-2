@@ -1,6 +1,6 @@
 #include "GameObject.h"
 
-GameObject::GameObject(string type, Geometry geometry, Transform* transform, Material material) : _geometry(geometry), _transform(transform), _type(type), _material(material)
+GameObject::GameObject(string type, Appearance* appearance, Transform* transform, ParticleModel* particleModel) : _appearance(appearance), _transform(transform), _type(type), _particleModel(particleModel)
 {
 	_parent = nullptr;
 	_position = XMFLOAT3();
