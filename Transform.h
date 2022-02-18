@@ -12,6 +12,8 @@ public:
 	Transform();
 	~Transform();
 
+	void Update(float t);
+
 	// Setters and Getters for position/rotation/scale
 	void SetPosition(XMFLOAT3 position) { _position = position; }
 	void SetPosition(float x, float y, float z) { _position.x = x; _position.y = y; _position.z = z; }
@@ -28,10 +30,15 @@ public:
 
 	XMFLOAT3 GetRotation() const { return _rotation; }
 
+	XMMATRIX GetWorldMatrix() const { return XMLoadFloat4x4(&_world); }
+
 private:
 
 	XMFLOAT3 _position;
 	XMFLOAT3 _rotation;
 	XMFLOAT3 _scale;
+
+	Transform* _parent;
+	XMFLOAT4X4 _world;
 };
 

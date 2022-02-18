@@ -108,6 +108,14 @@ private:
 
 	vector<GameObject *> _gameObjects;
 
+	Transform* _cube;
+	Transform* _floor;
+	Transform* _donut;
+
+	Appearance* _cubeAppearance;
+	Appearance* _donutAppearance;
+	Appearance* _floorAppearance;
+
 	Camera * _camera = nullptr;
 	float _cameraOrbitRadius = 7.0f;
 	float _cameraOrbitRadiusMin = 2.0f;
