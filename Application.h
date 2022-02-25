@@ -109,7 +109,7 @@ private:
 	vector<GameObject *> _gameObjects;
 
 	Transform* _cube;
-	Transform* _floor;
+	Transform* _floor = new Transform();
 	Transform* _donut;
 
 	Appearance* _cubeAppearance;

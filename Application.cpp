@@ -158,7 +158,7 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 
 	_floorAppearance = new Appearance(planeGeometry, noSpecMaterial);
 	
-	GameObject * gameObject = new GameObject("Floor", _floorAppearance, new Transform(), new ParticleModel());
+	GameObject * gameObject = new GameObject("Floor", _floorAppearance, _floor, new ParticleModel());
 	gameObject->GetTransform()->SetPosition(0.0f, 0.0f, 0.0f);
 	gameObject->GetTransform()->SetScale(15.0f, 15.0f, 15.0f);
 	gameObject->GetTransform()->SetRotation(XMConvertToRadians(90.0f), 0.0f, 0.0f);
@@ -679,6 +679,7 @@ void Application::moveForward(int objectNumber)
 	XMFLOAT3 position = _gameObjects[objectNumber]->GetTransform()->GetPosition();
 	position.z -= 0.02f;
 	_gameObjects[objectNumber]->GetTransform()->SetPosition(position);
+	_gameObjects[objectNumber]->GetParticleModel()->moveConstVelocity(5);
 }
 
 void Application::moveBackward(int objectNumber)
