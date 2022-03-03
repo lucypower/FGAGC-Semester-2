@@ -39,5 +39,5 @@ void ParticleModel::UpdateNetForce()
 
 void ParticleModel::UpdateAcceleration()
 {
-	_accleration.x = _netForce.x / _mass;
+	//_acceleration.x = _netForce.x / _mass;
 }
