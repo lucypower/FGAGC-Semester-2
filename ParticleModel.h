@@ -1,6 +1,7 @@
 #pragma once
 
 #include <DirectXMath.h>
+#include "Transform.h"
 
 using namespace DirectX;
 
@@ -10,7 +11,7 @@ class ParticleModel
 {
 public :
 
-	ParticleModel();
+	ParticleModel(Transform* _transform);
 	~ParticleModel();
 
 	void Update(float t);
@@ -21,8 +22,8 @@ public :
 	void SetAcceleration();
 	XMFLOAT3 GetAcceleration() const { return _acceleration; }
 
-	void moveConstVelocity(const float deltaTime); // need possible get set stuff idk
-	void moveConstAcceleration(const float deltaTime); // don't think these are actually affecting the object at the moment
+	void moveConstVelocity(const float deltaTime); 
+	void moveConstAcceleration(const float deltaTime);
 
 	void UpdateNetForce();
 	void UpdateAcceleration();
@@ -39,7 +40,6 @@ private :
 	XMVECTOR XMPosition = XMLoadFloat3(&_position);
 	XMVECTOR XMAcceleration = XMLoadFloat3(&_acceleration);
 
-	float _netForce;
-	float _mass;
+	Transform* _transform;
 };
 

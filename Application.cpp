@@ -158,7 +158,7 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 
 	_floorAppearance = new Appearance(planeGeometry, noSpecMaterial);
 	
-	GameObject * gameObject = new GameObject("Floor", _floorAppearance, _floor, new ParticleModel());
+	GameObject * gameObject = new GameObject("Floor", _floorAppearance, _floor, new ParticleModel(_floor));
 	gameObject->GetTransform()->SetPosition(0.0f, 0.0f, 0.0f);
 	gameObject->GetTransform()->SetScale(15.0f, 15.0f, 15.0f);
 	gameObject->GetTransform()->SetRotation(XMConvertToRadians(90.0f), 0.0f, 0.0f);
@@ -170,7 +170,7 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 
 	for (auto i = 0; i < NUMBEROFCUBES; i++)
 	{
-		gameObject = new GameObject("Cube " + i, _cubeAppearance, new Transform(), new ParticleModel());
+		gameObject = new GameObject("Cube " + i, _cubeAppearance, new Transform(), new ParticleModel(_cube));
 		gameObject->GetTransform()->SetScale(0.5f, 0.5f, 0.5f);
 		gameObject->GetTransform()->SetPosition(-4.0f + (i * 2.0f), 0.5f, 10.0f);
 		gameObject->GetAppearance()->SetTextureRV(_pTextureRV);
@@ -180,7 +180,7 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 
 	_donutAppearance = new Appearance(herculesGeometry, shinyMaterial);
 
-	gameObject = new GameObject("donut", _donutAppearance, new Transform(), new ParticleModel());
+	gameObject = new GameObject("donut", _donutAppearance, new Transform(), new ParticleModel(_donut));
 	gameObject->GetTransform()->SetScale(0.5f, 0.5f, 0.5f);
 	gameObject->GetTransform()->SetPosition(-4.0f, 0.5f, 10.0f);
 	gameObject->GetAppearance()->SetTextureRV(_pTextureRV);
@@ -679,7 +679,6 @@ void Application::moveForward(int objectNumber)
 	XMFLOAT3 position = _gameObjects[objectNumber]->GetTransform()->GetPosition();
 	position.z -= 0.02f;
 	_gameObjects[objectNumber]->GetTransform()->SetPosition(position);
-	_gameObjects[objectNumber]->GetParticleModel()->moveConstVelocity(5);
 }
 
 void Application::moveBackward(int objectNumber)

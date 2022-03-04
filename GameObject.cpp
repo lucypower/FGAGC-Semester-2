@@ -12,6 +12,7 @@ GameObject::~GameObject()
 void GameObject::Update(float t)
 {
 	_transform->Update(t);
+	_particleModel->Update(t);
 }
 
 void GameObject::Draw(ID3D11DeviceContext * pImmediateContext)
