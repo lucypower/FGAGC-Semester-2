@@ -2,9 +2,9 @@
 
 Transform::Transform()
 {
-	_position = XMFLOAT3(0.0f, 0.0f, 0.0f);
-	_rotation = XMFLOAT3(0.0f, 0.0f, 0.0f);
-	_scale = XMFLOAT3(0.0f, 0.0f, 0.0f);
+	_position = Vector3D(0.0f, 0.0f, 0.0f);
+	_rotation = Vector3D(0.0f, 0.0f, 0.0f);
+	_scale = Vector3D(0.0f, 0.0f, 0.0f);
 
 	_parent = nullptr;
 }

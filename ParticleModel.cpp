@@ -3,8 +3,8 @@
 ParticleModel::ParticleModel(Transform* _transform)
 {
 	_position = _transform->GetPosition(); 
-	_velocity = XMFLOAT3(0.0f, 0.0f, 0.0f);
-	_acceleration = XMFLOAT3(0.0f, 1.0f, 0.0f);
+	_velocity = Vector3D(0.0f, 0.0f, 0.0f);
+	_acceleration = Vector3D(0.0f, 1.0f, 0.0f);
 }
 
 ParticleModel::~ParticleModel()
@@ -14,26 +14,20 @@ ParticleModel::~ParticleModel()
 
 void ParticleModel::Update(float t)
 {
-	moveConstVelocity(t);
-	moveConstAcceleration(t);
+	
 }
 
 void ParticleModel::moveConstVelocity(const float deltaTime)
 {
-	XMPosition = XMPosition + (XMVelocity * deltaTime);
+	_position = _position + (_velocity * deltaTime);
 }
 
 void ParticleModel::moveConstAcceleration(const float deltaTime)
 {
-	
-	XMPosition = XMLoadFloat3(&_position);
-	XMVelocity = XMLoadFloat3(&_velocity);
 
-	XMPosition = XMPosition + (XMVelocity * deltaTime) + (0.5 * XMLoadFloat3(&_acceleration) * deltaTime * deltaTime);
-	XMVelocity = XMVelocity + (XMLoadFloat3(&_acceleration) * deltaTime);
+	_position = _position + (_velocity * deltaTime) + (_acceleration * 0.5f) * deltaTime * deltaTime;
+	_velocity = _velocity + (_acceleration * deltaTime);
 
-	XMStoreFloat3(&_position, XMPosition);
-	XMStoreFloat3(&_velocity, XMVelocity);
 }
 
 void ParticleModel::UpdateNetForce()

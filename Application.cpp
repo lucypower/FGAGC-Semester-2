@@ -676,14 +676,14 @@ void Application::Cleanup()
 
 void Application::moveForward(int objectNumber)
 {
-	XMFLOAT3 position = _gameObjects[objectNumber]->GetTransform()->GetPosition();
+	Vector3D position = _gameObjects[objectNumber]->GetTransform()->GetPosition();
 	position.z -= 0.02f;
 	_gameObjects[objectNumber]->GetTransform()->SetPosition(position);
 }
 
 void Application::moveBackward(int objectNumber)
 {
-	XMFLOAT3 position = _gameObjects[objectNumber-2]->GetTransform()->GetPosition();
+	Vector3D position = _gameObjects[objectNumber-2]->GetTransform()->GetPosition();
 	position.z += 0.02f;
 	_gameObjects[objectNumber-2]->GetTransform()->SetPosition(position);
 }

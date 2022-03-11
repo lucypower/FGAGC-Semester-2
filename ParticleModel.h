@@ -2,6 +2,7 @@
 
 #include <DirectXMath.h>
 #include "Transform.h"
+#include "Vector3D.h"
 
 using namespace DirectX;
 
@@ -17,10 +18,10 @@ public :
 	void Update(float t);
 
 	void SetVelocity();
-	XMFLOAT3 GetVelocity() const { return _velocity; }
+	Vector3D GetVelocity() const { return _velocity; }
 
 	void SetAcceleration();
-	XMFLOAT3 GetAcceleration() const { return _acceleration; }
+	Vector3D GetAcceleration() const { return _acceleration; }
 
 	void moveConstVelocity(const float deltaTime); 
 	void moveConstAcceleration(const float deltaTime);
@@ -32,13 +33,13 @@ private :
 
 	XMFLOAT4X4 _world;
 	
-	XMFLOAT3 _velocity;
-	XMFLOAT3 _position;
-	XMFLOAT3 _acceleration;
+	Vector3D _velocity;
+	Vector3D _position;
+	Vector3D _acceleration;
 
-	XMVECTOR XMVelocity = XMLoadFloat3(&_velocity);
+	/*XMVECTOR XMVelocity = XMLoadFloat3(&_velocity);
 	XMVECTOR XMPosition = XMLoadFloat3(&_position);
-	XMVECTOR XMAcceleration = XMLoadFloat3(&_acceleration);
+	XMVECTOR XMAcceleration = XMLoadFloat3(&_acceleration);*/
 
 	Transform* _transform;
 };
