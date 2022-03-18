@@ -2,7 +2,9 @@
 
 Vector3D::Vector3D() // constructor
 {
-	x, y, z = 0;
+	x = 0;
+	y = 0;
+	z = 0;
 }
 
 Vector3D::Vector3D(float x1, float y1, float z1) // constructor with values
@@ -63,10 +65,8 @@ Vector3D& Vector3D::operator*=(float value) //assign new result to vector.
 
 Vector3D Vector3D::operator/(float value) //division
 {
-	//Fix this
-
 	assert(value != 0); // prevent divide by 0
-	return Vector3D();
+	return Vector3D(x / value, y / value, z / value);
 }
 
 Vector3D& Vector3D::operator/=(float value) //assign new result to vector
@@ -91,19 +91,19 @@ Vector3D& Vector3D::operator=(const Vector3D& vec)
 
 float Vector3D::dot_product(const Vector3D& vec) //scalar dot_product
 {	
-	return ((this->x * vec.x) + (this->y * vec.y)); // maybe z instead of y?
+	return ((x * vec.x) + (y * vec.y) + (z * vec.z)); 
 }
 
 Vector3D Vector3D::cross_product(const Vector3D& vec) //cross_product
 {	
-	return Vector3D(((this->y * vec.z) - (this->z * vec.y)), ((this->z * vec.x) - (this->x * vec.z)), ((this->x * vec.y) - (this->y * vec.x)));
+	return Vector3D(((y * vec.z) - (z * vec.y)), ((z * vec.x) - (x * vec.z)), ((x * vec.y) - (y * vec.x)));
 }
 
 Vector3D Vector3D::normalization() //normalized vector
-{	//Fix this
-
-	return Vector3D();
-
+{	
+	assert(magnitude() != 0);
+	*this /= magnitude();
+	return *this;
 }
 
 float Vector3D::square() //gives square of the vector
@@ -113,7 +113,8 @@ float Vector3D::square() //gives square of the vector
 
 float Vector3D::distance(const Vector3D& vec) //distance between two vectors
 {
-	return sqrt((((vec.x - this->x) * (vec.x - this->x)) + ((vec.y - this->y) * (vec.y - this->y)) + ((vec.z - this->z) * (vec.z - this->z)))); // seems too long to be right ?
+	Vector3D distance = *this - vec;
+	return distance.magnitude();
 }
 
 float Vector3D::magnitude() //magnitude of the vector
