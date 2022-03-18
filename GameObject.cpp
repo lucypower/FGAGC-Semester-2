@@ -1,6 +1,6 @@
 #include "GameObject.h"
 
-GameObject::GameObject(string type, Appearance* appearance, Transform* transform, ParticleModel* particleModel) : _appearance(appearance), _transform(transform), _type(type), _particleModel(particleModel)
+GameObject::GameObject(string type, Appearance* appearance, ParticleModel* particleModel, Transform* transform) : _appearance(appearance), _transform(transform), _type(type), _particleModel(particleModel)
 {
 	_parent = nullptr;
 }

@@ -158,7 +158,7 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 
 	_floorAppearance = new Appearance(planeGeometry, noSpecMaterial);
 	
-	GameObject * gameObject = new GameObject("Floor", _floorAppearance, _floor, new ParticleModel(_floor));
+	GameObject * gameObject = new GameObject("Floor", _floorAppearance, new ParticleModel(_floor), _floor);
 	gameObject->GetTransform()->SetPosition(0.0f, 0.0f, 0.0f);
 	gameObject->GetTransform()->SetScale(15.0f, 15.0f, 15.0f);
 	gameObject->GetTransform()->SetRotation(XMConvertToRadians(90.0f), 0.0f, 0.0f);
@@ -170,7 +170,8 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 
 	for (auto i = 0; i < NUMBEROFCUBES; i++)
 	{
-		gameObject = new GameObject("Cube " + i, _cubeAppearance, new Transform(), new ParticleModel(_cube));
+		Transform* temp = new Transform();
+		gameObject = new GameObject("Cube " + i, _cubeAppearance, new ParticleModel(temp), temp);
 		gameObject->GetTransform()->SetScale(0.5f, 0.5f, 0.5f);
 		gameObject->GetTransform()->SetPosition(-4.0f + (i * 2.0f), 0.5f, 10.0f);
 		gameObject->GetAppearance()->SetTextureRV(_pTextureRV);
@@ -180,7 +181,8 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 
 	_donutAppearance = new Appearance(herculesGeometry, shinyMaterial);
 
-	gameObject = new GameObject("donut", _donutAppearance, new Transform(), new ParticleModel(_donut));
+	Transform* temp1 = new Transform();
+	gameObject = new GameObject("donut", _donutAppearance, new ParticleModel(temp1), temp1);
 	gameObject->GetTransform()->SetScale(0.5f, 0.5f, 0.5f);
 	gameObject->GetTransform()->SetPosition(-4.0f, 0.5f, 10.0f);
 	gameObject->GetAppearance()->SetTextureRV(_pTextureRV);
@@ -709,11 +711,14 @@ void Application::Update()
 	// Move gameobject
 	if (GetAsyncKeyState('1'))
 	{
-		moveForward(1);
+		_gameObjects[1]->GetParticleModel()->SetVelocity(Vector3D(0,1,0));
+		_gameObjects[1]->GetParticleModel()->moveConstVelocity(deltaTime);
+		
 	}
 	if (GetAsyncKeyState('2'))
 	{
-		moveForward(2);
+		_gameObjects[2]->GetParticleModel()->SetAcceleration(Vector3D(0, 1, 0));
+		_gameObjects[2]->GetParticleModel()->moveConstAcceleration(deltaTime);
 	}
 
 	if (GetAsyncKeyState('3'))

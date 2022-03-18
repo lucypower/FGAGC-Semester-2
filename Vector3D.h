@@ -17,7 +17,7 @@ public:
 
 	Vector3D(); //constructor
 
-	Vector3D(float x1, float y1, float z1 = 0); //construct with values.
+	Vector3D(float x1, float y1, float z1); //construct with values.
 
 	Vector3D(const Vector3D& vec); //copy constructor
 

@@ -12,15 +12,15 @@ class ParticleModel
 {
 public :
 
-	ParticleModel(Transform* _transform);
+	ParticleModel(Transform* _transform, bool useVelocity, bool useAcceleration);
 	~ParticleModel();
 
 	void Update(float t);
 
-	void SetVelocity();
+	void SetVelocity(Vector3D toset) { _velocity = toset; };
 	Vector3D GetVelocity() const { return _velocity; }
 
-	void SetAcceleration();
+	void SetAcceleration(Vector3D toset) { _acceleration = toset; };
 	Vector3D GetAcceleration() const { return _acceleration; }
 
 	void moveConstVelocity(const float deltaTime); 
@@ -37,10 +37,9 @@ private :
 	Vector3D _position;
 	Vector3D _acceleration;
 
-	/*XMVECTOR XMVelocity = XMLoadFloat3(&_velocity);
-	XMVECTOR XMPosition = XMLoadFloat3(&_position);
-	XMVECTOR XMAcceleration = XMLoadFloat3(&_acceleration);*/
-
 	Transform* _transform;
+
+	bool _useConstVelocity;
+	bool _useConstAcceleration;
 };
 

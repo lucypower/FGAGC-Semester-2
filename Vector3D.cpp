@@ -66,6 +66,7 @@ Vector3D& Vector3D::operator*=(float value) //assign new result to vector.
 Vector3D Vector3D::operator/(float value) //division
 {
 	assert(value != 0); // prevent divide by 0
+
 	return Vector3D(x / value, y / value, z / value);
 }
 
