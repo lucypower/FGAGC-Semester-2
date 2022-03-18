@@ -12,7 +12,7 @@ class ParticleModel
 {
 public :
 
-	ParticleModel(Transform* _transform, bool useVelocity, bool useAcceleration);
+	ParticleModel(Transform* _transform, bool useVelocity, bool useAcceleration, float objectMass, Vector3D netForce);
 	~ParticleModel();
 
 	void Update(float t);
@@ -41,5 +41,10 @@ private :
 
 	bool _useConstVelocity;
 	bool _useConstAcceleration;
+
+	Vector3D _netForce;
+	float _objectMass;
+
+	//TODO: get set netforce and mass like before
 };
 
