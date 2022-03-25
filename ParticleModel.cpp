@@ -30,6 +30,8 @@ void ParticleModel::Update(float t)
 		moveConstAcceleration(t);
 	}
 
+	UpdateNetForce();
+	UpdateAcceleration();
 
 }
 
@@ -54,7 +56,7 @@ void ParticleModel::moveConstAcceleration(const float deltaTime)
 
 void ParticleModel::UpdateNetForce()
 {
-
+	forces.push_back(_weight);
 //TODO: Possible solution
 //base force class,  abstract class, -> thrust, gravity, friction, teurbular flow, laminar flow ect.
 

@@ -3,6 +3,8 @@
 #include <DirectXMath.h>
 #include "Transform.h"
 #include "Vector3D.h"
+#include <vector>
+#include "BaseForces.h"
 
 using namespace DirectX;
 
@@ -17,10 +19,10 @@ public :
 
 	void Update(float t);
 
-	void SetVelocity(Vector3D toset) { _velocity = toset; };
+	void SetVelocity(Vector3D toset) { _velocity = toset; }
 	Vector3D GetVelocity() const { return _velocity; }
 
-	void SetAcceleration(Vector3D toset) { _acceleration = toset; };
+	void SetAcceleration(Vector3D toset) { _acceleration = toset; }
 	Vector3D GetAcceleration() const { return _acceleration; }
 
 	void moveConstVelocity(const float deltaTime); 
@@ -28,6 +30,12 @@ public :
 
 	void UpdateNetForce();
 	void UpdateAcceleration();
+
+	void SetObjectMass(float toset) { _objectMass = toset; }
+	float GetObjectMass() const { return _objectMass; }
+
+	void SetNetForce(Vector3D toset) { _netForce = toset; }
+	Vector3D GetNetForce() const { return _netForce; } 
 
 private :
 
@@ -45,6 +53,9 @@ private :
 	Vector3D _netForce;
 	float _objectMass;
 
-	//TODO: get set netforce and mass like before
+	float _gravity = 9.81f;
+	float _weight = _objectMass * _gravity;
+
+	std::vector<BaseForces> forces;
 };
 

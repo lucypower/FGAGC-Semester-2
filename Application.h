@@ -116,6 +116,10 @@ private:
 	Appearance* _donutAppearance;
 	Appearance* _floorAppearance;
 
+	Vector3D _cubeVector = Vector3D(0.0f, 0.0f, 0.0f);
+	Vector3D _donutVector = Vector3D(0.0f, 0.0f, 0.0f);
+	Vector3D _floorVector = Vector3D(0.0f, 0.0f, 0.0f);
+
 	Camera * _camera = nullptr;
 	float _cameraOrbitRadius = 7.0f;
 	float _cameraOrbitRadiusMin = 2.0f;
