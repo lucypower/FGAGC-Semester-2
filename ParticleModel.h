@@ -5,6 +5,7 @@
 #include "Vector3D.h"
 #include <vector>
 #include "BaseForces.h"
+#include "Gravity.h"
 
 using namespace DirectX;
 
@@ -19,10 +20,10 @@ public :
 
 	void Update(float t);
 
-	void SetVelocity(Vector3D toset) { _velocity = toset; }
+	void SetVelocity(Vector3D velocity) { _velocity = velocity; }
 	Vector3D GetVelocity() const { return _velocity; }
 
-	void SetAcceleration(Vector3D toset) { _acceleration = toset; }
+	void SetAcceleration(Vector3D acceleration) { _acceleration = acceleration; }
 	Vector3D GetAcceleration() const { return _acceleration; }
 
 	void moveConstVelocity(const float deltaTime); 
@@ -31,15 +32,17 @@ public :
 	void UpdateNetForce();
 	void UpdateAcceleration();
 
-	void SetObjectMass(float toset) { _objectMass = toset; }
+	void SetObjectMass(float objectMass) { _objectMass = objectMass; }
 	float GetObjectMass() const { return _objectMass; }
 
-	void SetNetForce(Vector3D toset) { _netForce = toset; }
+	void SetNetForce(Vector3D netForce) { _netForce = netForce; }
 	Vector3D GetNetForce() const { return _netForce; } 
 
 private :
 
 	XMFLOAT4X4 _world;
+
+	std::vector<BaseForces*> forces;
 	
 	Vector3D _velocity;
 	Vector3D _position;
@@ -53,9 +56,9 @@ private :
 	Vector3D _netForce;
 	float _objectMass;
 
-	float _gravity = 9.81f;
-	float _weight = _objectMass * _gravity;
+	Gravity* _gravity;
+	Vector3D _gravitationalForce = _gravity->GetGravity();
 
-	std::vector<BaseForces> forces;
+
 };
 
