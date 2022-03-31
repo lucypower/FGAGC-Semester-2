@@ -6,6 +6,8 @@
 #include <vector>
 #include "BaseForces.h"
 #include "Gravity.h"
+#include "LaminarFlow.h"
+#include "TurbulentFlow.h"
 
 using namespace DirectX;
 

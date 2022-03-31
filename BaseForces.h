@@ -14,5 +14,9 @@ public :
 	// lifetime thing so they dissappear after a certain amount of time or something like that
 
 	bool IsDead();
+
+private:
+
+	bool _dead;
 };
 

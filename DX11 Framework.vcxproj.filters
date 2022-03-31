@@ -28,6 +28,8 @@
     <ClInclude Include="BaseForces.h" />
     <ClInclude Include="ParticleSystem.h" />
     <ClInclude Include="Gravity.h" />
+    <ClInclude Include="LaminarFlow.h" />
+    <ClInclude Include="TurbulentFlow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
@@ -43,6 +45,8 @@
     <ClCompile Include="BaseForces.cpp" />
     <ClCompile Include="ParticleSystem.cpp" />
     <ClCompile Include="Gravity.cpp" />
+    <ClCompile Include="LaminarFlow.cpp" />
+    <ClCompile Include="TurbulentFlow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">

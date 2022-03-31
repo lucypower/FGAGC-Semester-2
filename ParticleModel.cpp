@@ -60,6 +60,8 @@ void ParticleModel::UpdateNetForce()
 	_netForce = Vector3D(0, 0, 0);
 
 	forces.push_back(new Gravity(5.0f));
+	forces.push_back(new LaminarFlow(_velocity, 0.0f, 1.05f, 1.0f));
+	forces.push_back(new TurbulentFlow(_velocity, 0.0f, 1.05f, 1.0f));
 	
 	for (int i = 0; i < forces.size(); i++)
 	{
@@ -76,19 +78,6 @@ void ParticleModel::UpdateNetForce()
 		if (forces[i] == nullptr)
 			forces.erase(forces.begin() + i);
 	}
-
-	/*_netForce.x += _gravitationalForce.x;
-	_netForce.y += _gravitationalForce.y;
-	_netForce.z += _gravitationalForce.z;*/
-
-
-//TODO: Possible solution
-//base force class,  abstract class, -> thrust, gravity, friction, teurbular flow, laminar flow ect.
-
-//TODO: If all working correctly, move into vector array and iterate through with a for each loop
-
-//in partcicle model
-//- std::vector<baseforces> forces; loop though each in update net force to calculate and combine the results into one net force.	
 }
 
 void ParticleModel::UpdateAcceleration()

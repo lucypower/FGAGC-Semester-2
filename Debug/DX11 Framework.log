@@ -1,11 +1,17 @@
 ﻿  Application.cpp
-C:\Users\p013206k\Documents\GitHub\FGAGC-Semester-2\Application.cpp(699,21): warning C4244: 'initializing': conversion from 'ULONGLONG' to 'DWORD', possible loss of data
+C:\Users\lcypw\OneDrive\Documents\University\Year 2\Further Games and Graphic Concepts\Physics Framework\Application.cpp(699,21): warning C4244: 'initializing': conversion from 'ULONGLONG' to 'DWORD', possible loss of data
   BaseForces.cpp
   Gravity.cpp
-C:\Users\p013206k\Documents\GitHub\FGAGC-Semester-2\Gravity.cpp(6,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  LaminarFlow.cpp
   Main.cpp
   GameObject.cpp
   ParticleModel.cpp
+C:\Users\lcypw\OneDrive\Documents\University\Year 2\Further Games and Graphic Concepts\Physics Framework\ParticleModel.cpp(66,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\lcypw\OneDrive\Documents\University\Year 2\Further Games and Graphic Concepts\Physics Framework\ParticleModel.cpp(71,4): warning C5205: delete of an abstract class 'BaseForces' that has a non-virtual destructor results in undefined behavior
+C:\Users\lcypw\OneDrive\Documents\University\Year 2\Further Games and Graphic Concepts\Physics Framework\BaseForces.h(4): message : see declaration of 'BaseForces'
+C:\Users\lcypw\OneDrive\Documents\University\Year 2\Further Games and Graphic Concepts\Physics Framework\ParticleModel.cpp(76,20): warning C4018: '<': signed/unsigned mismatch
+  TurbulentFlow.cpp
+  Vector3D.cpp
   Generating Code...
 Appearance.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
-  DX11 Framework.vcxproj -> C:\Users\p013206k\Documents\GitHub\FGAGC-Semester-2\Debug\DX11 Framework.exe
+  DX11 Framework.vcxproj -> C:\Users\lcypw\OneDrive\Documents\University\Year 2\Further Games and Graphic Concepts\Physics Framework\Debug\DX11 Framework.exe

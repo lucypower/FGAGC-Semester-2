@@ -5,7 +5,7 @@
 class Gravity : public BaseForces
 {
 public: 
-	Gravity(float mass, float GravitationalConstant = -9.81f);
+	Gravity(float mass, float gravitationalConstant = -9.81f);
 
 	Vector3D Formula() override;
 

@@ -1,15 +1,15 @@
 #include "Gravity.h"
 
-Gravity::Gravity(float mass, float GravitationalConstant = -9.81f)
+Gravity::Gravity(float mass, float gravitationalConstant)
 {
 	_mass = mass;
-	gravitationalConstant = GravitationalConstant;
+	gravitationalConstant = gravitationalConstant;
 }
 
 Vector3D Gravity::Formula()
 {
 	_gravity.x = 0;
-	_gravity.y = _mass * -9.81;
+	_gravity.y = _mass * gravitationalConstant;
 	_gravity.z = 0; 
 
 	return _gravity;
