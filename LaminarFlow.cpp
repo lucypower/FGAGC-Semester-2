@@ -1,17 +1,15 @@
 #include "LaminarFlow.h"
 
-LaminarFlow::LaminarFlow(Vector3D velocity, float fluidDensity, float dragCoef, float areaRef)
+LaminarFlow::LaminarFlow(float dragCoef)
 {
-	_velocity = velocity;
-
-	_dragFactor = 0.5f * fluidDensity * dragCoef * areaRef;
+	_dragCoef = dragCoef;
 }
 
-Vector3D LaminarFlow::Formula()
+Vector3D LaminarFlow::Formula(Vector3D velocity)
 {
-	_laminar.x = -_dragFactor * _velocity.x;
-	_laminar.y = -_dragFactor * _velocity.y;
-	_laminar.z = -_dragFactor * _velocity.z;
+	_laminar.x = -_dragCoef * velocity.x;
+	_laminar.y = -_dragCoef * velocity.y;
+	_laminar.z = -_dragCoef * velocity.z;
 
 	return _laminar;
 }

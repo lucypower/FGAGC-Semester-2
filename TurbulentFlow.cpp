@@ -1,19 +1,16 @@
 #include "TurbulentFlow.h"
 
-TurbulentFlow::TurbulentFlow(Vector3D velocity, float fluidDensity, float dragCoef, float areaRef)
+TurbulentFlow::TurbulentFlow(float fluidDensity, float areaRef)
 {
-	_velocity = velocity;
-
-	_dragFactor = 0.5f * fluidDensity * dragCoef * areaRef;
-
+	_dragFactor = 0.5f * fluidDensity * areaRef;
 }
 
-Vector3D TurbulentFlow::Formula()
+Vector3D TurbulentFlow::Formula(Vector3D velocity)
 {
-
-	_turbulent.x = -_dragFactor * _velocity.square();
+	_turbulent.x = -_dragFactor * velocity.x * velocity.x;
+	_turbulent.y = -_dragFactor * velocity.y * velocity.y;
+	_turbulent.z = -_dragFactor * velocity.z * velocity.z;
 
 	return _turbulent;
 }
 
-// TODO: Finish formula here

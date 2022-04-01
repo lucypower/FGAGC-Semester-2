@@ -158,7 +158,7 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 
 	_floorAppearance = new Appearance(planeGeometry, noSpecMaterial);
 	
-	GameObject * gameObject = new GameObject("Floor", _floorAppearance, new ParticleModel(_floor, false, false, 10, _floorVector), _floor);
+	GameObject * gameObject = new GameObject("Floor", _floorAppearance, new ParticleModel(_floor, false, false, 10), _floor);
 	gameObject->GetTransform()->SetPosition(0.0f, 0.0f, 0.0f);
 	gameObject->GetTransform()->SetScale(15.0f, 15.0f, 15.0f);
 	gameObject->GetTransform()->SetRotation(XMConvertToRadians(90.0f), 0.0f, 0.0f);
@@ -171,7 +171,7 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 	for (auto i = 0; i < NUMBEROFCUBES; i++)
 	{
 		Transform* temp = new Transform();
-		gameObject = new GameObject("Cube " + i, _cubeAppearance, new ParticleModel(temp, false, false, 10, _cubeVector), temp);
+		gameObject = new GameObject("Cube " + i, _cubeAppearance, new ParticleModel(temp, false, false, 1), temp);
 		gameObject->GetTransform()->SetScale(0.5f, 0.5f, 0.5f);
 		gameObject->GetTransform()->SetPosition(-4.0f + (i * 2.0f), 0.5f, 10.0f);
 		gameObject->GetAppearance()->SetTextureRV(_pTextureRV);
@@ -182,7 +182,7 @@ HRESULT Application::Initialise(HINSTANCE hInstance, int nCmdShow)
 	_donutAppearance = new Appearance(herculesGeometry, shinyMaterial);
 
 	Transform* temp1 = new Transform();
-	gameObject = new GameObject("donut", _donutAppearance, new ParticleModel(temp1, false , false, 10, _donutVector), temp1);
+	gameObject = new GameObject("donut", _donutAppearance, new ParticleModel(temp1, false , false, 10), temp1);
 	gameObject->GetTransform()->SetScale(0.5f, 0.5f, 0.5f);
 	gameObject->GetTransform()->SetPosition(-4.0f, 0.5f, 10.0f);
 	gameObject->GetAppearance()->SetTextureRV(_pTextureRV);
@@ -711,7 +711,10 @@ void Application::Update()
 	// Move gameobject
 	if (GetAsyncKeyState('1'))
 	{
-		_gameObjects[1]->GetParticleModel()->SetVelocity(Vector3D(0,1,0));
+		//_gameObjects[1]->GetParticleModel()->SetVelocity(Vector3D(0,1,0));
+		//_gameObjects[1]->GetParticleModel()->moveConstVelocity(deltaTime);
+
+		_gameObjects[1]->GetParticleModel()->AddForce(Vector3D(0, 0, 2));
 		_gameObjects[1]->GetParticleModel()->moveConstVelocity(deltaTime);
 		
 	}
@@ -729,6 +732,12 @@ void Application::Update()
 	{
 		moveBackward(4);
 	}
+
+	if (GetAsyncKeyState('5'))
+	{
+		//_gameObjects[1]
+	}
+
 	// Update camera
 	float angleAroundZ = XMConvertToRadians(_cameraOrbitAngleXZ);
 

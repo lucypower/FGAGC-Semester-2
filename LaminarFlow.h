@@ -6,9 +6,9 @@ class LaminarFlow : public BaseForces // used for slow relative object motion
 {
 public :
 
-	LaminarFlow(Vector3D velocity, float fluidDensity, float dragCoef, float areaRef);
+	LaminarFlow(float dragCoef);
 
-	Vector3D Formula() override;
+	Vector3D Formula(Vector3D velocity) override;
 
 	Vector3D GetLaminar() const { return _laminar; }
 
@@ -16,7 +16,7 @@ private:
 
 	Vector3D _velocity;
 
-	float _dragFactor;
+	float _dragCoef;
 	Vector3D _laminar;
 
 };

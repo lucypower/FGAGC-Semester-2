@@ -6,16 +6,15 @@ class TurbulentFlow : public BaseForces
 {
 public :
 
-	TurbulentFlow(Vector3D velocity, float fluidDensity, float dragCoef, float areaRef);
+	TurbulentFlow(float fluidDensity, float areaRef);
 
-	Vector3D Formula();
+	Vector3D Formula(Vector3D velocity) override;
 
 private :
 
 	Vector3D _velocity;
 	Vector3D _turbulent;
-	float _dragFactor;
-	Vector3D _velocityMagnitude;
 
+	float _dragFactor;
 };
 

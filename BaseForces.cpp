@@ -2,5 +2,5 @@
 
 bool BaseForces::IsDead()
 {
-	return _dead;
+	return _IsDead;
 }

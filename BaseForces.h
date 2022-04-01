@@ -4,7 +4,8 @@
 class BaseForces
 {
 public :
-	virtual Vector3D Formula() = 0;
+
+	virtual Vector3D Formula(Vector3D velocity) = 0;
 
 //formula function  pure virtual =0;
 	// declare formula etc
@@ -17,6 +18,6 @@ public :
 
 private:
 
-	bool _dead;
+	bool _IsDead = false;
 };
 

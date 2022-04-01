@@ -17,7 +17,7 @@ class ParticleModel
 {
 public :
 
-	ParticleModel(Transform* _transform, bool useVelocity, bool useAcceleration, float objectMass, Vector3D netForce);
+	ParticleModel(Transform* _transform, bool useVelocity, bool useAcceleration, float objectMass);
 	~ParticleModel();
 
 	void Update(float t);
@@ -40,6 +40,8 @@ public :
 	void SetNetForce(Vector3D netForce) { _netForce = netForce; }
 	Vector3D GetNetForce() const { return _netForce; } 
 
+	void AddForce(Vector3D force) { _netForce += force; }
+
 private :
 
 	XMFLOAT4X4 _world;
@@ -47,7 +49,6 @@ private :
 	std::vector<BaseForces*> forces;
 	
 	Vector3D _velocity;
-	Vector3D _position;
 	Vector3D _acceleration;
 
 	Transform* _transform;
@@ -59,7 +60,6 @@ private :
 	float _objectMass;
 
 	Gravity* _gravity;
-	Vector3D _gravitationalForce = _gravity->GetGravity();
 
 
 };

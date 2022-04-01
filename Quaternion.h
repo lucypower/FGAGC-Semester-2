@@ -1,4 +1,5 @@
 #pragma once
+#include "Vector3D.h"
 
 /**
 * Holds a three degree of freedom orientation.
@@ -24,29 +25,6 @@
 #include <d3d11_1.h>
 
 using namespace DirectX;
-
-// REMOVE ME! 
-// Vector3 here should be removed, use your own Vector class instead throughout this class
-struct Vector3
-{
-	float x;
-	float y;
-	float z;
-
-	Vector3()
-	{
-		this->x = 0.0f;
-		this->y = 0.0f;
-		this->z = 0.0f;
-	}
-
-	Vector3(float x, float y, float z)
-	{
-		this->x = x;
-		this->y = y;
-		this->z = z;
-	}
-};
 
 class Quaternion
 {
@@ -159,7 +137,7 @@ public:
 	*
 	* @param scale The amount of the vector to add.
 	*/
-	void addScaledVector(const Vector3& vector, float scale)
+	void addScaledVector(const Vector3D& vector, float scale)
 	{
 		Quaternion q(0,
 			vector.x * scale,
@@ -172,7 +150,7 @@ public:
 		k += q.k * 0.5f;
 	}
 
-	void rotateByVector(const Vector3& vector)
+	void rotateByVector(const Vector3D& vector)
 	{
 		Quaternion q(0, vector.x, vector.y, vector.z);
 		(*this) *= q;
@@ -184,7 +162,7 @@ public:
 * position and orientation.
 */
 static inline void CalculateTransformMatrixColumnMajor(XMMATRIX &transformMatrix,
-	const Vector3 &position,
+	const Vector3D &position,
 	const Quaternion &orientation)
 {
 	transformMatrix.r[0] = XMVectorSetX(transformMatrix.r[0], 1 - 2 * orientation.j*orientation.j - 2 * orientation.k*orientation.k);
@@ -217,7 +195,7 @@ static inline void CalculateTransformMatrixColumnMajor(XMMATRIX &transformMatrix
 }
 
 static inline void CalculateTransformMatrixRowMajor(XMMATRIX &transformMatrix, // converting quarternion and a position to a 4x4 matrix
-	const Vector3 &position,
+	const Vector3D &position,
 	const Quaternion &orientation)
 {
 	transformMatrix.r[0] = XMVectorSetX(transformMatrix.r[0], 1 - 2 * orientation.j*orientation.j - 2 * orientation.k*orientation.k);
