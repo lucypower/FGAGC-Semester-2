@@ -33,11 +33,16 @@ public:
 
 	XMMATRIX GetWorldMatrix() const { return XMLoadFloat4x4(&_world); }
 
+	/*void SetCentreMass();
+	Vector3D GetCentreMass() const { return _centreMass; }*/
+
 private:
 
 	Vector3D _position;
 	Vector3D _rotation;
 	Vector3D _scale;
+
+	//Vector3D _centreMass;
 
 	Transform* _parent;
 	XMFLOAT4X4 _world;
