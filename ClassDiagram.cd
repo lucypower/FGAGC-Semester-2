@@ -1,139 +1,144 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Application">
-    <Position X="0.5" Y="1.75" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
-    </Compartments>
+  <Comment CommentText="These are structs found within the Application class&#xD;&#xA;">
+    <Position X="2.333" Y="2.583" Height="0.812" Width="1.815" />
+  </Comment>
+  <Comment CommentText="Appearance, ParticleModel and Transform are three seperate classes used to create a game object">
+    <Position X="2.417" Y="8.375" Height="1.01" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Geometry and Material are structs found within the Appearance class&#xD;&#xA;">
+    <Position X="1.198" Y="12.875" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="The BaseForces class is the one used as a parent class for all the forces used in the ParticleModel class&#xD;&#xA;">
+    <Position X="7.875" Y="6.625" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="The Camera is used within the Application class&#xD;&#xA;">
+    <Position X="4.896" Y="1.74" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="The Vector3D class is used for all vector calculations, majority of which being in the ParticleModel&#xD;&#xA;">
+    <Position X="11.771" Y="0.5" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="The Quarternion class is used for rotations of the object&#xD;&#xA;&#xD;&#xA;">
+    <Position X="11.833" Y="1.979" Height="0.75" Width="1.7" />
+  </Comment>
+  <Class Name="Application" Collapsed="true">
+    <Position X="5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BCyACCJCHBqAAxgEMiEEAwABCAASAIOAkABkAOJAQQI=</HashCode>
+      <HashCode>BCyACCJCHBqAAxoEMiEEAwARCAASAIOBkAhkAOJAQQI=</HashCode>
       <FileName>Application.h</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="_camera" />
-      <Field Name="_gameObjects" />
-    </ShowAsAssociation>
   </Class>
-  <Class Name="Camera">
-    <Position X="2.5" Y="1.75" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Fields" Collapsed="true" />
-    </Compartments>
+  <Class Name="BaseForces" Collapsed="true">
+    <Position X="7.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAEAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BaseForces.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Camera" Collapsed="true">
+    <Position X="7" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAQKAQAAACAAQAgAQAAAIAIIgAAAAgQAACABAIIAQQA=</HashCode>
       <FileName>Camera.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GameObject">
-    <Position X="6.5" Y="0.75" Width="1.5" />
+    <Position X="2.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABQAJEAAECCAAgQQAEAAAAAQAgAQAgkAKEAAggIAAGA=</HashCode>
+      <HashCode>ABQAAAAQAAAAAgQAAQDAAAAQAAAAAAEACEAAAAIEAAA=</HashCode>
       <FileName>GameObject.h</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="_geometry" />
-    </ShowAsAssociation>
   </Class>
-  <Class Name="std::vector&lt;_Ty, _Alloc&gt;">
-    <Position X="4.5" Y="1" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Methods" Collapsed="true" />
-    </Compartments>
+  <Class Name="Gravity" Collapsed="true">
+    <Position X="9.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AWAEk4EqCrBsCEBAAOMIIAAyAAUEQBIghQkwgkAFUko=</HashCode>
-      <FileName>C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.27.29110\include\vector</FileName>
+      <HashCode>AAAAAACAAAAIAAAAAAABAAAAAAAABAAAAAAACAAAAQA=</HashCode>
+      <FileName>Gravity.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Struct Name="DDS_PIXELFORMAT" Collapsed="true">
-    <Position X="15" Y="3.75" Width="1.5" />
+  <Class Name="LaminarFlow" Collapsed="true">
+    <Position X="9.75" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAQAAAAAAAAQAAAIAAAAAAAAAAAAAAAAAAACAFIAQ=</HashCode>
-      <FileName>DDSTextureLoader.cpp</FileName>
+      <HashCode>AAAAAAAAAQIAAAAAAAAAAAAAAAAZBAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LaminarFlow.h</FileName>
     </TypeIdentifier>
-  </Struct>
-  <Struct Name="DDS_HEADER" Collapsed="true">
-    <Position X="11.5" Y="3.75" Width="1.5" />
+  </Class>
+  <Class Name="TurbulentFlow" Collapsed="true">
+    <Position X="9.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAASAAAAAAAgQIQIAAIAAEgAAAAAAAAAAQIAAAAAQ=</HashCode>
-      <FileName>DDSTextureLoader.cpp</FileName>
+      <HashCode>BAAAAAAAAAIAAAAAAAQAAAAAAAAABQAAAAAAAAAAAAA=</HashCode>
+      <FileName>TurbulentFlow.h</FileName>
     </TypeIdentifier>
-  </Struct>
-  <Struct Name="DDS_HEADER_DXT10" Collapsed="true">
-    <Position X="13.25" Y="3.75" Width="1.5" />
+  </Class>
+  <Class Name="Appearance">
+    <Position X="0.5" Y="7.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAAAgAAAAAAACAAAAAAAAAAAQAAAAAAAgAAAAAAA=</HashCode>
-      <FileName>DDSTextureLoader.cpp</FileName>
+      <HashCode>AAAAJEAAGAIAAgAAAEAAAAAAAgAQAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Appearance.h</FileName>
     </TypeIdentifier>
-  </Struct>
-  <Struct Name="SurfaceInfo" Collapsed="true">
-    <Position X="13.25" Y="5.75" Width="1.5" />
+  </Class>
+  <Class Name="ParticleModel">
+    <Position X="6" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAyAAAAEAAMBIAAgBQBBAAAQAACAAEAAAEAQAQQABEE=</HashCode>
+      <FileName>ParticleModel.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Transform">
+    <Position X="4.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAECCAAAAQAAAAAAQQAAAAAggAIAAAggAAAOA=</HashCode>
+      <FileName>Transform.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Quaternion" Collapsed="true">
+    <Position X="9.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAQAAAAAoAEBAAAQEAI=</HashCode>
+      <FileName>Quaternion.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Vector3D" Collapsed="true">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAACAAAAAAIAQAAAEgQAAAAAQBgEQAAIAA=</HashCode>
+      <FileName>Vector3D.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="SurfaceInfo">
+    <Position X="0.5" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAIAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
       <FileName>Application.h</FileName>
     </TypeIdentifier>
   </Struct>
-  <Struct Name="Light" Collapsed="true">
-    <Position X="13.25" Y="4.75" Width="1.5" />
+  <Struct Name="Light">
+    <Position X="2.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AEAAAAAAYAAAAAAAAAgAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
       <FileName>Application.h</FileName>
     </TypeIdentifier>
   </Struct>
-  <Struct Name="ConstantBuffer" Collapsed="true">
-    <Position X="2" Y="0.5" Width="1.5" />
+  <Struct Name="ConstantBuffer">
+    <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAAAAAAEBAAAAAAAAQAAAAAAAIBAAAAAAAAAAAQAAA=</HashCode>
       <FileName>Application.h</FileName>
     </TypeIdentifier>
   </Struct>
-  <Struct Name="Geometry">
-    <Position X="9" Y="0.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAABAAIAQAAAAACAAAAAA=</HashCode>
-      <FileName>GameObject.h</FileName>
-    </TypeIdentifier>
-  </Struct>
-  <Struct Name="Material" Collapsed="true">
-    <Position X="15" Y="4.75" Width="1.5" />
+  <Struct Name="Material">
+    <Position X="2.25" Y="10.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAABAAAAABAAAA=</HashCode>
-      <FileName>GameObject.h</FileName>
+      <FileName>Appearance.h</FileName>
     </TypeIdentifier>
   </Struct>
-  <Struct Name="SimpleVertex" Collapsed="true">
-    <Position X="11.5" Y="5.75" Width="1.5" />
+  <Struct Name="Geometry">
+    <Position X="0.5" Y="10.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACIAAAAAAAgAABAAAA=</HashCode>
-      <FileName>Structures.h</FileName>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAABAAIAQAAAAACAAAAAA=</HashCode>
+      <FileName>Appearance.h</FileName>
     </TypeIdentifier>
   </Struct>
-  <Struct Name="MeshData" Collapsed="true">
-    <Position X="8.75" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAgAAAAAAAAAAAAAAEAAAAQAAIAAAAAAAAAAAEAA=</HashCode>
-      <FileName>Structures.h</FileName>
-    </TypeIdentifier>
-  </Struct>
-  <Struct Name="`anonymous-namespace'::handle_closer" Collapsed="true">
-    <Position X="11.5" Y="4.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>DDSTextureLoader.cpp</FileName>
-    </TypeIdentifier>
-  </Struct>
-  <Enum Name="DDS_MISC_FLAGS2" Collapsed="true">
-    <Position X="13.75" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
-      <FileName>DDSTextureLoader.cpp</FileName>
-    </TypeIdentifier>
-  </Enum>
-  <Enum Name="DirectX::DDS_ALPHA_MODE" Collapsed="true">
-    <Position X="11.5" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAIAAAAAAAAAAAAAAAAAACAAAAAQAAAQAAAAAAAAABA=</HashCode>
-      <FileName>DDSTextureLoader.h</FileName>
-    </TypeIdentifier>
-  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

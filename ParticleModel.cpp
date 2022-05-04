@@ -7,6 +7,7 @@ ParticleModel::ParticleModel(Transform* ap_transform, bool useVelocity, bool use
 	_acceleration = Vector3D(0.0f, 1.0f, 0.0f);
 	_netForce = Vector3D(0.0f, 0.0f, 0.0f);
 
+	forces.push_back(new Gravity(1));
 	forces.push_back(new LaminarFlow(1.05f));
 	forces.push_back(new TurbulentFlow(0.0f, 1.0f));
 }
